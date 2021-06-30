@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import TextField from '@atlaskit/textfield'
+import Button from '@atlaskit/button'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+        <TextField name="addtodo" placeholder="Thêm mọi thứ ở đây ..." elemAfterInput={
+            <Button>Thêm</Button>
+        }>
+        </TextField>
+        </>
+    );
 }
 
 export default App;
