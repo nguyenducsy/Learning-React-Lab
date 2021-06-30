@@ -1,0 +1,34 @@
+<head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<head>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div id="thongbao">
+            </div>
+
+        </header>
+
+        <main>
+        </main>
+        <footer>
+        </footer>
+    </div>
+
+
+</body>
+
+<script type="text/babel">
+    var user = { ten: 'Duc Sy', sLC: 6 }; var tb =
+    <p className="soLanChoi"> Chao ban { user.ten }!Bạn đã chơi đủ { user.sLC } lần rồi
+    </p>
+
+    ReactDOM.render(tb, document.getElementById('thongbao'))
+</script>
