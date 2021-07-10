@@ -33,17 +33,19 @@
     var user = { ten: 'Duc Sy', sLC: 0 };
      let ten = localStorage.getItem("ten");
      
-      while (ten == null) ten = prompt("Hãy nhập tên của bạn!!") ;
+      while (ten === null) ten = prompt("Hãy nhập tên của bạn!!") ;
       
-       localStorage.setItem("ten", ten); user.ten = ten ;
+       localStorage.setItem("ten", ten); 
+       user.ten = ten ;
         let soLanChoi = localStorage.getItem("solanchoi"); 
         soLanChoi++;
         localStorage.setItem("solanchoi" , soLanChoi);
+
         function checkLanChoi(e){ 
             if (e > 8) { return "Bạn chơi 8 lần rồi ! Trả tiền để chơi tiếp" }
              else return "Có thể chơi tiếp" }
 //trường hợp không dùng JSX 
- var tb = <p className="soLanChoi"> Chao ban <span className="ten"> { user.ten } </span>!Bạn đã chơi {soLanChoi} lần : <span className="mau">{ checkLanChoi(soLanChoi) }  </span> </p>
+        var tb = <p className="soLanChoi"> Chao ban <span className="ten"> { user.ten } </span>!Bạn đã chơi {soLanChoi} lần : <span className="mau">{ checkLanChoi(soLanChoi) }  </span> </p>
 
         ReactDOM.render(tb, document.getElementById('thongbao'))
 </script>
