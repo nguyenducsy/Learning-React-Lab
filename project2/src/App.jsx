@@ -1,4 +1,7 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import {  Col, Row } from "react-bootstrap";
 
 function App() {
   return (

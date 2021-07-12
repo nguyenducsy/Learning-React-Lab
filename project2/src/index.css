@@ -1,76 +1,131 @@
-body{
-  margin: 0px;
+body {
+    margin: 0px;
 }
-.container{
-  width: 1200px;
-  margin: 0 auto;
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
 }
-header{ 
-  height: 50px ;
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 30px;
-  background: slategray;
+
+header {
+    height: 50px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+    background: slategray;
 }
-.mr{
-  padding: 0px 10px;
+
+.tin {
+    padding: 10px 10px;
 }
-hr{
-  border: none;
-  height: 1px;
-  background-color: gray;
-  background-image: linear-gradient(to right, gray, white);
+
+.tin .title {
+    font-size: 15pt;
+    font-weight: 600;
+    border-bottom: 1px gray solid;
 }
-.pd{
-  border: rgb(105, 104, 104) 1px solid;
-  border-radius: 5px;
+
+.mr {
+    padding: 0px 10px;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.274)); */
 }
-h3 a{
-  text-decoration: none;
-  color: rgb(36, 35, 36);
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: gray;
+    background-image: linear-gradient(to right, gray, white);
 }
-p{
-  color: rgb(49, 48, 48);
+
+.pd {
+    border: white 1px solid;
+    border-radius: 5px;
 }
-section#sec2 #tinmoi{
-  display: grid;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-columns: auto auto auto;
+
+h3 a {
+    /* text-shadow: black 3px 1px 11px; */
+    text-decoration: none;
+    color: rgb(36, 35, 36);
+    color: white;
+    font-weight: 600;
 }
-section#sec1{
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: 50% auto auto;
-  height: 450px;
-  margin: 5px 0;
+
+p {
+    /* text-shadow: black 10px 6px 20px; */
+    text-decoration: none;
+    color: rgb(36, 35, 36);
+    color: white;
+    font-weight: 600;
 }
-section#sec1 > div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+a:hover {
+    color: white;
 }
-section#sec1 #col1{
-  grid-row-start: 1;
-  grid-row-end: 3;
-  background: darkseagreen;
+
+section#sec2 #tinmoi {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: auto auto auto;
 }
-section#sec1 #col2{
-  grid-column-start: 2;
-  grid-column-end: 4;
-  background: darkturquoise; 
+
+section#sec1 {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 50% auto auto;
+    height: 450px;
+    margin: 5px 0;
 }
-section#sec1 #col3{
-  background: darkorchid;
+
+section#sec1>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-section#sec1 #col4{
-  background: darkkhaki;
+
+section#sec1 #col1 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* opacity: 0.9; */
+    /* background-image: url("https://vnn-imgs-f.vgcloud.vn/2021/07/10/21/ttt-7787.jpg"); */
+    background-color: #0A3D64;
 }
-section#sec2{
-  display: grid;
-  grid-template-columns: auto 300px;
-  min-height: 500px;
+
+section#sec1 #col2 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color: #ddb0a7;
+    /* background-image: url("https://photo-baomoi.zadn.vn/w700_r16x9/2021_07_10_8_39467071/82e250a82ceac5b49cfb.jpg"); */
 }
-section#sec2 > aside { background: indianred;}
-section#sec2 > article { background: lightgrey; }
-footer { background: bisque; height: 60px;}
+
+section#sec1 #col3 {
+    background-color: #eaad5a;
+    /* background-image: url("https://photo-baomoi.zadn.vn/w300_r3x2/2021_07_10_294_39467044/cf4e4414de54370a6e45.jpg"); */
+}
+
+section#sec1 #col4 {
+    background-color: #a8b293;
+    /* background-image: url("https://vnn-imgs-f.vgcloud.vn/2021/07/10/20/ca-covid-19-van-tang-rat-manh-tp-hcm-tong-luc-tam-soat-truy-tim-f0-2-240x160.jpg"); */
+}
+
+section#sec2 {
+    display: grid;
+    grid-template-columns: auto 300px;
+    min-height: 500px;
+}
+
+section#sec2>aside {
+    background: #df8053;
+}
+
+section#sec2>article {
+    background: #b0b5b5;
+}
+
+footer {
+    background: bisque;
+    height: 50px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+}
