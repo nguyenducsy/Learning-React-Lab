@@ -1,0 +1,74 @@
+#sachBanChay .listSach {
+    display: grid;
+    grid-template-columns: 33% 33% auto;
+    grid-gap: 20px
+}
+
+.MotSach {
+    box-shadow: rgb(206, 206, 206) 0px 0px 7px;
+    /* border: 1px solid rgb(8, 3, 41); */
+    text-align: center;
+}
+
+.MotSach h3 {
+    height: 70px;
+    margin: 5px 0 0 0;
+    text-shadow: rgb(219, 219, 219) 0px 0px 5px;
+    color: teal
+}
+
+.MotSach p {
+    margin: 5px 0 5px 0;
+    font-size: 1.3em;
+    color: darkorange;
+    font-weight: bold;
+}
+
+.MotSach a {
+    color: deeppink;
+    font-size: 1em;
+}
+
+.MotSach img {
+    max-width: 100%;
+    height: 180px;
+    /* border: 1px black solid; */
+}
+
+.thich {
+    transition: 0.4s;
+    background-color: rgba(156, 156, 156, 0.555);
+}
+
+.btnChonMua {
+    height: 45px;
+    width: 80px;
+    background: darkcyan;
+    border: none;
+    margin-right: 10px;
+    color: white;
+}
+
+.btnChonMua:hover {
+    background: darkorange;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btnThich {
+    height: 43px;
+    width: 45px;
+    background: darkslategray;
+    border: none;
+    margin-right: 10px;
+    color: white;
+    border-radius: 50%;
+}
+
+.btnThich:hover {
+    transition: 0.5s;
+    background: darkorange;
+    color: white;
+    cursor: pointer;
+}

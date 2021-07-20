@@ -1,0 +1,24 @@
+.hiengiohang h2 {
+    font-size: 1em;
+}
+
+.hiengiohang .motsach {
+    /* border: 1px white solid; */
+    margin: 5px 3px;
+    padding: 5px;
+    text-align: left;
+    font-size: 0.8em;
+    text-transform: capitalize;
+    height: 100px;
+}
+
+.hiengiohang .motsach img {
+    width: 24%;
+    height: 95px;
+    margin-right: 10px;
+}
+
+.hiengiohang .motsach p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
