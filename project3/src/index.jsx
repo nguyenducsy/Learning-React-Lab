@@ -23,6 +23,8 @@ function capNhatGioHang(idSach){
    let sachChon = arrSach.find((sach,index)=> {
       if(sach.id===idSach) return true;
    })
+
+   
    if(sachChon==null) { alert("Không có sách này"); return; }
    else sachDaChon.push(sachChon);
    

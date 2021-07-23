@@ -10,8 +10,10 @@ import Tinxemnhieu from './component/tinxemnhieu'
 import TheThao from './OOP/Thể thao'
 import TinNew from './OOP/TinMoi'
 import Pagedetail from './component/pagedetail'
+
 const params = new URLSearchParams(window.location.search);
 let id = params.get('id');
+
 console.log(id);
 
 if(id == null){

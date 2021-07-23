@@ -3,8 +3,8 @@ import '../ShowMotSach.css'
 class MotSach extends React.Component{
     constructor(props){
         super();
-        let like = ""
-        this.state={thich:false , caption:"Thích"}
+        let like = "";
+        this.state={thich:false , caption:"Thích"};
         console.log("Mot Sach Contructor");
         
     }
