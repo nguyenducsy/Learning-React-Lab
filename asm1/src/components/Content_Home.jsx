@@ -50,6 +50,7 @@ function Head1_home(props) {
                                 {/*LIST PRODUCT*/}
                                 <ul className="products" id="listpro">
                             	</ul>
+
 							<div className="paginate">
                                         <div className="paginate_links">
                                             <span className="pagination-meta">Page 1 of 3</span>
@@ -79,123 +80,15 @@ function Head1_home(props) {
                                     </ul>
                                 </div>
                                 <div className="widget shop widget_top_rated_products">
-                                    <h4 className="widget-title"><span>Top Rated</span></h4>
-                                    <ul className="product_list_widget">
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product1_front.jpg" alt="" />
-                                                <span className="product-title">Black Solids Poly</span>
-                                            </a>
-                                            <div className="star-rating">
-                                                {/* <span style="width:100%"></span> */}
-                                            </div>
-                                            <span className="amount">&#36;9.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product2_front.jpg" alt="" />
-                                                <span className="product-title">Avirate Blue Ditsy</span>
-                                            </a>
-                                            <div className="star-rating">
-                                                {/*<span style="width:40%"></span>*/}
-                                            </div>
-                                            <span className="amount">&#36;18.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product3_front.jpg" alt="" />
-                                                <span className="product-title">Mustard Brown</span>
-                                            </a>
-                                            <div className="star-rating">
-                                                {/*<span style="width:60%"></span>*/}
-                                            </div>
-                                            <span className="amount">&#36;20.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product4_front.jpg" alt="" />
-                                                <span className="product-title">Unique Fashion Pink</span>
-                                            </a>
-                                            <div className="star-rating">
-
-                                            </div>
-                                            <span className="amount">&#36;35.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product5_front.jpg" alt="" />
-                                                <span className="product-title">Chemistry Pink</span>
-                                            </a>
-                                            <div className="star-rating">
-
-                                            </div>
-                                            <ins>
-                                            <span className="amount">&#36;2.00</span>
-                                        </ins>
-                                            <del>
-                                            <span className="amount">&#36;3.00</span>
-                                        </del>
-                                        </li>
+                                    <h4 className="widget-title"><span>Nổi bật</span></h4>
+                                    <ul className="product_list_widget" id="listProHot">
+                             
                                     </ul>
                                 </div>
                                 <div className="widget shop widget_recent_reviews">
-                                    <h4 className="widget-title"><span>Recent Reviews</span></h4>
-                                    <ul className="product_list_widget">
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product6_front.jpg" alt="" />
-                                                <span className="product-title">Black Solids Poly</span>
-                                            </a>
-                                            <div className="star-rating">
-                                                {/*<span style="width:100%"></span>*/}
-                                            </div>
-                                            <span className="amount">&#36;9.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product7_front.jpg" alt="" />
-                                                <span className="product-title">Avirate Blue Ditsy</span>
-                                            </a>
-                                            <div className="star-rating">
-                                                {/*<span style="width:40%"></span>*/}
-                                            </div>
-                                            <span className="amount">&#36;18.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product8_front.jpg" alt="" />
-                                                <span className="product-title">Mustard Brown</span>
-                                            </a>
-                                            <div className="star-rating">
-                                                <span width="60%"></span>
-                                            </div>
-                                            <span className="amount">&#36;20.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product9_front.jpg" alt="" />
-                                                <span className="product-title">Unique Fashion Pink</span>
-                                            </a>
-                                            <div className="star-rating">
-
-                                            </div>
-                                            <span className="amount">&#36;35.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img width="200" height="200" src="images/product/product10_front.jpg" alt="" />
-                                                <span className="product-title">Chemistry Pink</span>
-                                            </a>
-                                            <div className="star-rating">
-
-                                            </div>
-                                            <ins>
-                                            <span className="amount">&#36;2.00</span>
-                                        </ins>
-                                            <del>
-                                            <span className="amount">&#36;3.00</span>
-                                        </del>
-                                        </li>
+                                    <h4 className="widget-title"><span>Bán chạy</span></h4>
+                                    <ul className="product_list_widget" id="listProChay">
+                                   
                                     </ul>
                                 </div>
                             </div>

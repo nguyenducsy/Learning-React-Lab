@@ -10,31 +10,30 @@ class Cart extends React.Component {
     render() {
         const kq = 
         <>
-             <tr class="cart_item">
-                                            <td class="product-remove">
-                                                <a href="#" class="remove">&times;</a>
+             <tr className="cart_item">
+                                            <td className="product-remove">
+                                                <a href="#" className="remove">&times;</a>
                                             </td>
-                                            <td class="product-thumbnail">
+                                            <td className="product-thumbnail">
                                                 <a href="#">
                                                     <img width="200" height="200" src={this.props.item.urlPic} alt="p7" />
                                                 </a>
                                             </td>
-                                            <td class="product-name">
+                                            <td className="product-name">
                                                 <a href="#">{this.props.item.name} </a>
                                             </td>
-                                            <td class="product-price text-center">
-                                                <span class="amount">{this.props.formatPrice.format(this.props.item.price)}</span>
+                                            <td className="product-price text-center">
+                                                <span className="amount">{this.props.formatPrice.format(this.props.item.price)}</span>
                                             </td>
-                                            <td class="product-quantity text-center">
-                                                <div class="quantity">
-                                                    <input type="number" value="1" title="Qty" class="input-text qty text" size="4" />
+                                            <td className="product-quantity text-center">
+                                                <div className="quantity">
+                                                    <input type="number" value="1" title="Qty" className="input-text qty text" size="4" />
                                                 </div>
                                             </td>
-                                            <td class="product-subtotal text-center">
-                                            <span class="amount">{this.props.formatPrice.format(this.props.item.price)}</span>
+                                            <td className="product-subtotal text-center">
+                                            <span className="amount">{this.props.formatPrice.format(this.props.item.price)}</span>
                                             </td>
-                                        </tr>
-                                    
+                                        </tr>            
         </>
         return (kq)
     };

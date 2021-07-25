@@ -1523,11 +1523,11 @@ p.demo_store {
     display: table;
 }
 
-.shop div.product form.cart:after {
+.shop div.product div.cart:after {
     clear: both;
 }
 
-.shop div.product form.cart div.quantity {
+.shop div.product div.cart div.quantity {
     float: left;
     margin: 0 1em 10px 0;
 }
@@ -2175,12 +2175,12 @@ p.demo_store {
 
 .shop ul.products li.product figcaption .shop-loop-product-info .info-meta .info-price {
     display: table-cell;
-    width: 70%;
+    width: 80%;
 }
 
 .shop ul.products li.product figcaption .shop-loop-product-info .info-meta .info-rating {
     display: table-cell;
-    width: 30%;
+    width: 20%;
 }
 
 .shop ul.products li.product strong {
@@ -3076,6 +3076,10 @@ textarea.shop table.cart td.actions .coupon .input-text {
     font-size: 100%;
     font-weight: 600;
     margin-bottom: 0.2em;
+    /* padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; */
     color: #333333;
 }
 

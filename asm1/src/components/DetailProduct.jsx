@@ -1,14 +1,24 @@
 import React from 'react';
 
-class  DetailProduct extends React.Component  {
+class DetailProduct extends React.Component  {
 	constructor(props){
         super();
         this.state = {
-            showYK: true
+            showYK: true,quatityChecked:0, idProChecked:[]
 		}    
 		console.log(props);
+		this.name = React.createRef();
+		this.content = React.createRef();
 		
+	}
+	choosePro = (idPro) => {  
+        this.state.idProChecked.push(idPro);
+		this.state.quatityChecked++;
+		console.log(idPro);
+		// localStorage.setItem('no' , JSON.stringify(this.state.quatityChecked));
+        this.props.ShowCarts(idPro);
     }
+   
     render() {
 		return (
         <>
@@ -57,18 +67,18 @@ class  DetailProduct extends React.Component  {
 	                                                    <div className="caroufredsel-wrap">
 	                                                        <ul className="caroufredsel-items">
 	                                                            <li className="caroufredsel-item">
-	                                                                <a href="images/product/product_detail.jpg" data-rel="magnific-popup" title="p11">
-	                                                                    <img width="700" height="700" src="images/product/product1_front.jpg" alt="" />
+	                                                                <a href={this.props.pro.urlPic}  data-rel="magnific-popup" title="p11">
+	                                                                    <img width="700" height="700" src={this.props.pro.urlPic} alt="" />
 	                                                                </a>
 	                                                            </li>
 	                                                            <li className="caroufredsel-item">
-	                                                                <a href="images/product/product_detail.jpg" data-rel="magnific-popup" title="p12">
-	                                                                    <img width="700" height="700" src="images/product/product2_front.jpg" alt="p12"/>
+	                                                                <a href={this.props.pro.urlPic2}  data-rel="magnific-popup" title="p12">
+	                                                                    <img width="700" height="700" src={this.props.pro.urlPic2} alt="p12"/>
 	                                                                </a>
 	                                                            </li>
 	                                                        </ul>
-	                                                        <a href="#" className="caroufredsel-prev"></a>
-	                                                        <a href="#" className="caroufredsel-next"></a>
+	                                                        <a href="#" className="caroufredsel-prev"><img src="https://img.icons8.com/flat-round/64/000000/circled-chevron-right.png" alt=""/></a>
+	                                                        <a href="#" className="caroufredsel-next"><img src="https://img.icons8.com/flat-round/64/000000/circled-chevron-right.png" alt=""/></a>
 	                                                    </div>
 	                                                </div>
 	                                                <div className="product-thumbnails-slider single-product-thumbnails" data-visible-max="4" data-visible-min="3" data-responsive="1" data-infinite="1">
@@ -77,14 +87,14 @@ class  DetailProduct extends React.Component  {
 	                                                            <li className="caroufredsel-item">
 	                                                                <div className="thumb">
 	                                                                    <a href="#" data-rel="0" title="p11">
-	                                                                        <img width="200" height="200" src="images/product/product1_front.jpg" alt="p11" title="p11"/>
+	                                                                        <img width="200" height="200" src={this.props.pro.urlPic} alt="p11" title="p11"/>
 	                                                                    </a>
 	                                                                </div>
 	                                                            </li>
 	                                                            <li className="caroufredsel-item">
 	                                                                <div className="thumb">
 	                                                                    <a href="#" data-rel="1" title="p12">
-	                                                                        <img width="200" height="200" src="images/product/product2_front.jpg" alt="p12"/>
+	                                                                        <img width="200" height="200" src={this.props.pro.urlPic2} alt="p12"/>
 	                                                                    </a>
 	                                                                </div>
 	                                                            </li>
@@ -97,25 +107,28 @@ class  DetailProduct extends React.Component  {
 	                                        </div>
 	                                        <div className="col-md-6 col-sm-6">
 	                                            <div className="summary entry-summary">
-	                                                <h1 className="product_title entry-title">Brown Printed</h1>
+	                                                <h1 className="product_title entry-title">{this.props.pro.name}</h1>
 	                                                <div className="shop-product-rating">
 	                                                    <div className="star-rating">
-	                                                        <span width="90%"></span>
+														<span className={"star-rating-width" + this.props.pro.star*20}></span>
 	                                                    </div>
 	                                                    <a href="#reviews" className="shop-review-link">
-	                                                        (<span className="count">2</span> customer reviews)
+	                                                        (<span className="count">{this.props.pro.view}</span> customer reviews)
 	                                                    </a>
 	                                                </div>
 	                                                <p>
-	                                                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+														{this.props.pro.des}
 	                                                </p>
-	                                                <p className="price"><span className="amount">&#36;20.00</span></p>
-	                                                <form className="cart">
-	                                                    <div className="quantity">
+	                                            <p className="price">Giá: <span className="amount"> {this.props.format.format(this.props.pro.price)}</span></p>
+	                                                {/* <form className="cart">
+	                                                    */}
+														<div className="cart">
+														<div className="quantity">
 	                                                        <input type="number" step="1" min="1" name="quantity" value="1" className="input-text qty text" size="4"/>
-	                                                    </div>
-	                                                    <button type="submit" className="button">Add to cart</button>
-	                                                </form>
+	                                                    </div> 
+	                                                    <button type="submit" className="button" onClick={() => this.choosePro(this.props.pro.id)}>Add to cart</button>
+														</div>
+											        {/* </form> */}
 	                                                <div className="add-to-wishlist-actions">
 	                                                    <a href="#" className="add_to_wishlist"></a>
 	                                                </div>
@@ -129,7 +142,7 @@ class  DetailProduct extends React.Component  {
 	                                                    <div className="share-icons">
 	                                                        <span className="facebook-share">
 	                                                            <a href="#" title="Share on Facebook">
-	                                                                <i className="fa fa-facebook"></i>
+																<i class="fa fa-facebook"></i>
 	                                                            </a>
 	                                                        </span>
 	                                                        <span className="twitter-share">
@@ -164,78 +177,20 @@ class  DetailProduct extends React.Component  {
 	                                        <div className="tab-content">
 	                                            <div className="tab-pane active" id="tab-description">
 	                                                <p>
-                                                    Proin maximus egestas dui placerat vestibulum. Fusce congue enim ac metus facilisis imperdiet. Praesent non eros nunc. Aenean risus magna, volutpat sed tellus in, maximus auctor diam. Ut et ligula vel est cursus pretium. Integer non faucibus augue. Integer laoreet semper nunc, at tincidunt sem accumsan sed. Etiam eget finibus quam, vulputate laoreet nisi. Duis efficitur dolor eget nisl pellentesque accumsan. Donec pretium neque id auctor ornare. Ut elementum justo vitae ex dignissim consequat. Curabitur eget mi at felis lobortis suscipit. Aenean id libero porttitor, pretium lectus a, scelerisque neque. Fusce rutrum non arcu at placerat. Cras lobortis felis quis posuere viverra. Fusce ullamcorper eget felis at lobortis.
-                                                </p>
-                                                <p>
-                                                    In pharetra et dui at dictum. Aliquam consequat volutpat sem, quis tempor libero porttitor non. Quisque quis est dictum, cursus purus ut, euismod magna. Sed dictum diam sit amet magna sollicitudin euismod. Praesent imperdiet vehicula est, vel fringilla libero venenatis sed. Sed vitae nulla iaculis, bibendum elit quis, sagittis metus. Cras vel nisi nec purus suscipit eleifend.
-                                                </p>
-                                                <p>
-                                                    Curabitur nec magna in nulla placerat viverra ac ultricies orci. Curabitur vulputate in odio nec congue. Nam eu auctor nisi. Proin rutrum nulla sed maximus hendrerit. Nunc lacus augue, dictum eget sapien vel, finibus viverra augue. Quisque ac ligula in tortor consequat feugiat. Quisque placerat eget risus nec ullamcorper. Sed volutpat nisi in dui laoreet rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean semper, massa vel fermentum malesuada, justo nisi laoreet sem, vitae volutpat diam ex et velit. Quisque pellentesque orci aliquam, commodo diam quis, hendrerit felis. Fusce cursus elit ac ipsum condimentum, a tempor nulla consequat.
-                                                </p>
-                                                <p>
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum lacinia placerat tellus, quis mollis mauris congue a. Cras ultricies eleifend venenatis. Fusce non metus eros. Donec elementum leo porta facilisis luctus. Donec lobortis egestas pharetra. Integer eu purus eu velit pellentesque molestie. Mauris consequat leo nec justo venenatis semper. Nulla sed eros non justo mattis viverra ut et velit. Proin nec luctus odio. Vivamus in diam sed odio pretium luctus. In ornare hendrerit purus id volutpat. Nunc a velit quis est auctor pellentesque in sit amet ligula.
-                                                </p>
-                                                <p>
-                                                    Sed non tellus vitae neque cursus maximus vitae non urna. Praesent sit amet sapien ultricies, dictum eros accumsan, luctus neque. Suspendisse elementum dolor quis risus commodo blandit. Mauris egestas malesuada bibendum. Duis ut enim imperdiet, euismod arcu id, viverra lectus. Integer libero sem, venenatis et venenatis sed, tristique a metus. Integer efficitur urna ac iaculis rhoncus. Vestibulum commodo semper ipsum sit amet porttitor. Suspendisse potenti. Praesent elementum tortor turpis, quis accumsan nulla sollicitudin sed. Praesent sed iaculis arcu. Aliquam id odio arcu. Aenean sed congue ligula. Vivamus ullamcorper placerat velit, tempor condimentum justo fringilla vitae. Donec tristique ac lorem efficitur viverra. Proin facilisis varius sem sit amet dictum.
-                                                </p>
+														{this.props.pro.des}
+                                                    </p>
 	                                            </div>
 	                                            <div className="tab-pane" id="tab-reviews">
 	                                                <div id="reviews">
 	                                                    <div id="comments">
 	                                                        <h2>2 reviews for Brown Printed</h2>
-	                                                        <ol className="commentlist">
-	                                                            <li className="comment">
-	                                                                <div className="comment_container">
-	                                                                    <img alt="" src="images/avatar/user-1.jpg" className="avatar" height="60" width="60" />
-	                                                                    <div className="comment-text">
-	                                                                        <div className="star-rating">
-																			<span width="90%"></span>
-	                                                                        </div>
-	                                                                        <p className="meta">
-	                                                                            <strong>Cobus Bester</strong> &ndash; <time datetime="2014-10-12T15:33:24+00:00">June 7, 2013</time>:
-	                                                                        </p>
-	                                                                        <div className="description">
-	                                                                            <p>Wonderful quality, and an awesome design. WooThemes ftw!</p>
-	                                                                        </div>
-	                                                                    </div>
-	                                                                </div>
-	                                                            </li>
-	                                                            <li className="comment">
-	                                                                <div className="comment_container">
-	                                                                    <img alt="" src="images/avatar/user-2.jpg" className="avatar" height="60" width="60" />
-	                                                                    <div className="comment-text">
-	                                                                        <div className="star-rating">
-																			<span width="90%"></span>
-	                                                                        </div>
-	                                                                        <p className="meta">
-	                                                                            <strong>Andrew</strong> &ndash; <time datetime="2014-10-12T15:33:24+00:00">June 7, 2013</time>:
-	                                                                        </p>
-	                                                                        <div className="description">
-	                                                                            <p>This t-shirt is awesome! Would recommend to everyone!</p>
-	                                                                            <p>I&#8217;m ordering mine next week</p>
-	                                                                        </div>
-	                                                                    </div>
-	                                                                </div>
-	                                                            </li>
+	                                                        <ol className="commentlist" id ="listComment">
+	                                                     
+	                                                    
 	                                                        </ol>
 	                                                        <div id="respond-wrap">
-	                                                            <div id="respond" className="comment-respond">
-	                                                                <h3 id="reply-title" className="comment-reply-title">
-	                                                                    <span>Leave a reply</span>
-	                                                                </h3>
-	                                                                <form className="comment-form">
-	                                                                    <p className="comment-form-name">
-	                                                                        <label>Your name</label>
-	                                                                        <input className="form-control" name="name" />
-	                                                                    </p>
-	                                                                    <p className="comment-form-comment">
-	                                                                        <label>Comment</label>
-	                                                                        <textarea className="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>
-	                                                                    </p>
-	                                                                    <p>
-	                                                                        <input name="submit" className="btn btn-primary form-submit" value="Post Comment" type="submit" />
-	                                                                    </p>
-	                                                                </form>
+	                                                            <div id="respond" className="comment-respond"> {/* Form Comment */} 
+	                                                         
 	                                                            </div> 
 	                                                        </div>
 	                                                    </div>
@@ -246,159 +201,10 @@ class  DetailProduct extends React.Component  {
 	                                    </div>
 	                                    <div className="related products">
 	                                        <div className="related-title">
-	                                            <h3><span>Related Products</span></h3>
+	                                            {/* <h3><span>Related Products</span></h3> */}
 	                                        </div>
-	                                        <ul className="products columns-3" data-columns="3">
-	                                            <li className="product">
-													<div className="product-container">
-														<figure>
-															<div className="product-wrap">
-																<div className="product-images">
-																	<span className="onsale">Sale!</span>
-                                                                    <div className="shop-loop-thumbnail shop-loop-front-thumbnail">
-                                                                        <img width="365" height="385" src="	images/product/product16_front.jpg" alt=""/>
-                                                                    </div>
-                                                                    <div className="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                                        <img width="365" height="385" src="images/product/product16_back.jpg" alt=""/>
-                                                                    </div>
-                                                                    <div className="yith-wcwl-add-to-wishlist">
-                                                                        <a href="#" className="add_to_wishlist">Add to Wishlist</a>
-                                                                    </div>
-                                                                    <div className="clear"></div>
-																</div>
-																<div className="shop-loop-actions">
-																	<a href="#" className="button add_to_cart_button product_type_simple">Add to cart</a>
-																	<a className="shop-loop-quickview" title="Quick shop" href="#"></a>
-																</div>
-															</div>
-															<figcaption>
-																<div className="shop-loop-product-info">
-																	<div className="info-title">
-																		<div className="product-category">
-																			<a href="#" rel="tag">Shirts</a>, <a href="#" rel="tag">Tops &amp; Tunics</a>
-																		</div>
-																		<h3 className="product_title">
-																			<a href="#">Miss Chase</a>
-																		</h3>
-																	</div>
-																	<div className="info-meta">
-																		<div className="info-price">
-																			<span className="price"> 
-																				<ins>
-																					<span className="amount">&#36;18.00</span>
-																				</ins>
-																				<del>
-																					<span className="amount">&#36;20.00</span>
-																				</del>
-																			</span>
-																		</div>
-																		<div className="info-rating">
-																			<div className="star-rating">
-																			<span width="90%"></span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li className="product">
-													<div className="product-container">
-														<figure>
-															<div className="product-wrap">
-																<div className="product-images">
-																	<div className="shop-loop-thumbnail shop-loop-front-thumbnail">
-                                                                        <img width="365" height="385" src="	images/product/product17_front.jpg" alt=""/>
-                                                                    </div>
-                                                                    <div className="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                                        <img width="365" height="385" src="images/product/product17_back.jpg" alt=""/>
-                                                                    </div>
-                                                                    <div className="yith-wcwl-add-to-wishlist">
-                                                                        <a href="#" className="add_to_wishlist">Add to Wishlist</a>
-                                                                    </div>
-                                                                    <div className="clear"></div>
-																</div>
-																<div className="shop-loop-actions">
-																	<a href="#" className="button add_to_cart_button product_type_simple">Add to cart</a>
-																	<a className="shop-loop-quickview" title="Quick shop" href="#"></a>
-																</div>
-															</div>
-															<figcaption>
-																<div className="shop-loop-product-info">
-																	<div className="info-title">
-																		<div className="product-category">
-																			<a href="#" rel="tag">Shirts</a>, <a href="#" rel="tag">Tops &amp; Tunics</a>
-																		</div>
-																		<h3 className="product_title">
-																			<a href="#">Mustard Brown Printed</a>
-																		</h3>
-																	</div>
-																	<div className="info-meta">
-																		<div className="info-price">
-																			<span className="price"> 
-																				<span className="amount">&#36;20.00</span>
-																			</span>
-																		</div>
-																		<div className="info-rating">
-																			<div className="star-rating">
-																			<span width="90%"></span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li className="product">
-													<div className="product-container">
-														<figure>
-															<div className="product-wrap">
-																<div className="product-images">
-																	<div className="shop-loop-thumbnail shop-loop-front-thumbnail">
-                                                                        <img width="365" height="385" src="	images/product/product18_front.jpg" alt=""/>
-                                                                    </div>
-                                                                    <div className="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                                        <img width="365" height="385" src="images/product/product18_back.jpg" alt=""/>
-                                                                    </div>
-                                                                    <div className="yith-wcwl-add-to-wishlist">
-                                                                        <a href="#" className="add_to_wishlist">Add to Wishlist</a>
-                                                                    </div>
-                                                                    <div className="clear"></div>
-																</div>
-																<div className="shop-loop-actions">
-																	<a href="#" className="button add_to_cart_button product_type_simple">Add to cart</a>
-																	<a className="shop-loop-quickview" title="Quick shop" href="#"></a>
-																</div>
-															</div>
-															<figcaption>
-																<div className="shop-loop-product-info">
-																	<div className="info-title">
-																		<div className="product-category">
-																			<a href="#" rel="tag">Shirts</a>, <a href="#" rel="tag">Tops &amp; Tunics</a>
-																		</div>
-																		<h3 className="product_title">
-																			<a href="#">Mustard Purple</a>
-																		</h3>
-																	</div>
-																	<div className="info-meta">
-																		<div className="info-price">
-																			<span className="price"> 
-																				<span className="amount">&#36;20.00</span>
-																			</span>
-																		</div>
-																		<div className="info-rating">
-																			<div className="star-rating">
-																			<span width="90%"></span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
+											{/* san pham lien quan */}
+	                                        <ul className="products columns-3" data-columns="3"  id="listpro">
 	                                        </ul>
 	                                    </div>
 									</div>
@@ -420,123 +226,13 @@ class  DetailProduct extends React.Component  {
 									</ul>
 								</div>
 								<div className="widget shop widget_top_rated_products">
-									<h4 className="widget-title"><span>Top Rated</span></h4>
-									<ul className="product_list_widget">
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product1_front.jpg" alt=""/>
-												<span className="product-title">Black Solids Poly</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;9.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product2_front.jpg" alt=""/>
-												<span className="product-title">Avirate Blue Ditsy</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;18.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product3_front.jpg" alt=""/>
-												<span className="product-title">Mustard Brown</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;20.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product4_front.jpg" alt=""/>
-												<span className="product-title">Unique Fashion Pink</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;35.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product5_front.jpg" alt=""/>
-												<span className="product-title">Chemistry Pink</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<ins>
-												<span className="amount">&#36;2.00</span>
-											</ins>
-											<del>
-												<span className="amount">&#36;3.00</span>
-											</del>
-										</li>
+								<h4 className="widget-title"><span>Nổi bật</span></h4>
+                                    <ul className="product_list_widget" id="listProHot">
 									</ul>
 								</div>
 								<div className="widget shop widget_recent_reviews">
-									<h4 className="widget-title"><span>Recent Reviews</span></h4>
-									<ul className="product_list_widget">
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product6_front.jpg" alt=""/>
-												<span className="product-title">Black Solids Poly</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;9.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product7_front.jpg" alt=""/>
-												<span className="product-title">Avirate Blue Ditsy</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;18.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product8_front.jpg" alt=""/>
-												<span className="product-title">Mustard Brown</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;20.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product9_front.jpg" alt=""/>
-												<span className="product-title">Unique Fashion Pink</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<span className="amount">&#36;35.00</span>
-										</li>
-										<li>
-											<a href="#">
-												<img width="200" height="200" src="images/product/product10_front.jpg" alt=""/>
-												<span className="product-title">Chemistry Pink</span>
-											</a>
-											<div className="star-rating">
-											<span width="90%"></span>
-											</div>
-											<ins>
-												<span className="amount">&#36;2.00</span>
-											</ins>
-											<del>
-												<span className="amount">&#36;3.00</span>
-											</del>
-										</li>
+								<h4 className="widget-title"><span>Bán chạy</span></h4>
+                                    <ul className="product_list_widget" id="listProChay">
 									</ul>
 								</div>
 							</div>

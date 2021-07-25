@@ -15,9 +15,12 @@
     <link rel='stylesheet' href='./css/page.css' type='text/css' media='all' />
     <link rel='stylesheet' href='./css/preloader.css' type='text/css' media='all' />
     <link rel='stylesheet' href='./css/magnific-popup.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="./css/account.css">
     <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>React App</title>
 </head>
 
@@ -49,7 +52,7 @@
                                 <div class="topbar-info">
                                     <a href="#"><i class="fa fa-phone"></i> (+84) 702 434 097</a>
                                     <a href="https://github.com/nguyenducsy">
-                                        <i class="fa fa-envelope-o"></i>
+                                        <i class="fa fa-github"></i>
                                         <span>github.com(nguyenducsy)</span>
                                     </a>
                                     <!-- <a href="#"><i class="fa fa-skype"></i> skype.name</a> -->
@@ -58,7 +61,7 @@
                         </div>
                         <div class="col-md-7 col-sm-6">
                             <div class="right-topbar">
-                                <div class="topbar-icon-button">
+                                <!-- <div class="topbar-icon-button">
                                     <div class="navbar-search">
                                         <a class="navbar-search-button" href="#">
                                             <i class="fa fa-search"></i>
@@ -82,15 +85,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="topbar-nav">
                                     <ul class="nav top-nav">
                                         <img src="./images/avatar/user-2.jpg" alt="">
-                                        <li><a title="My Account" href="">Hello , Đức Sỹ</a></li>
+                                        <li><a title="My Account" href="?home=login">Hello , Đức Sỹ</a></li>
                                         <li class="dropdown">
-                                            <button type="button">
+                                            <button type="submit">
+                                                    <a href="?home=login"> <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" /></a>
+                                                 </button>
+                                            <!-- <form action="/"> -->
+                                            <button type="submit" class="logout">
                                                 <img src="https://img.icons8.com/ios-filled/50/000000/logout-rounded-left.png" />
-                                            </button>
+                                            <!-- </button> -->
+                                            </form>
                                             <!-- <button class="btn btn-warning" type="button">Logout</button> -->
                                             <!-- <a title="Checkout" href="#" class="dropdown-hover">
                                                 Checkout <span class="caret"></span>
@@ -484,6 +492,7 @@
                                         </li> -->
                                         <li class="menu-item-has-children megamenu megamenu-fullwidth dropdown">
                                             <a title="Shop" href="/?home=cart" class="dropdown-hover">
+                                                <span id="numberCart" class="circle"></span>
                                                 <i class="navicon elegant_icon_cart_alt"></i>
                                                 <span class="underline">Cart</span> <span class="caret"></span>
                                             </a>
@@ -580,16 +589,16 @@
                             <div class="widget social-widget">
                                 <div class="social-widget-wrap social-widget-outlined">
                                     <a href="#" title="Facebook" target="_blank">
-                                        <i class="fa fa-facebook facebook-bg-hover facebook-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" alt=""></i>
+                                        <i class=" facebook-bg-hover facebook-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" alt=""></i>
                                     </a>
                                     <a href="#" title="Twitter" target="_blank">
-                                        <i class="fa fa-twitter twitter-bg-hover twitter-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-512.png" alt=""></i>
+                                        <i class=" twitter-bg-hover twitter-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-512.png" alt=""></i>
                                     </a>
                                     <a href="#" title="Google+" target="_blank">
-                                        <i class="fa fa-google-plus google-plus-bg-hover google-plus-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/google-512.png" alt=""></i>
+                                        <i class=" google-plus-bg-hover google-plus-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/google-512.png" alt=""></i>
                                     </a>
                                     <a href="#" title="Pinterest" target="_blank">
-                                        <i class="fa fa-pinterest pinterest-bg-hover pinterest-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/pinterest-512.png" alt=""></i>
+                                        <i class=" pinterest-bg-hover pinterest-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/pinterest-512.png" alt=""></i>
                                     </a>
                                 </div>
                             </div>
@@ -667,13 +676,13 @@
                                 </h3>
                                 <div class="textwidget">
                                     <p>AIRSlice is a online store that focuses on user experience. </p>
-                                    {/*
+
                                     <p>
                                         <i class="fa fa-home"></i> AIRSlice - NSW 2204, Australia<br><br />
                                         <i class="fa fa-phone"></i> (+112) 12 345 678<br><br />
                                         <i class="fa fa-envelope"></i>
-                                        <a href="mailto:info@domain.com"><i class="fa fa-envelope-o"></i><span>info@domain.com</span></a>
-                                    </p> */}
+                                        <a href="mailto:info@domain.com"><span>info@domain.com</span></a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

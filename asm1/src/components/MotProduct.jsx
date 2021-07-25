@@ -3,9 +3,11 @@ import React from 'react';
 class MotProduct extends React.Component {
 	constructor(props){
 		super();
-		this.state = {like:true , caption:<img src="https://img.icons8.com/ios/50/fa314a/like--v1.png"/>};
+		this.state = {like:true  , caption:<img src="https://img.icons8.com/ios/50/fa314a/like--v1.png"/>};
 		let sale = "";
 
+	
+		
 		if (props.pro.sale===1) {
 			this.sale = <span className="onsale">Sale!</span>;
 		}
@@ -44,8 +46,8 @@ class MotProduct extends React.Component {
                                                             <div className="clear"></div>
 														</div>
 														<div className="shop-loop-actions">
-															<a href="#" className=" btbcart product_type_simple">
-																<button type="button" onClick={() => this.props.choosePro(this.props.pro.id)}>
+															<a className="btbcart product_type_simple">
+																<button type="submit"  onClick={() => this.props.choosePro(this.props.pro.id)}>
 																	 <img src="https://img.icons8.com/material-sharp/24/ffffff/shopping-cart.png"/>
 																</button>
 															</a>
@@ -63,17 +65,17 @@ class MotProduct extends React.Component {
 																	<a href="#" rel="tag">Shirts</a>, <a href="#" rel="tag">Tops &amp; Tunics</a>
 																</div>
 																<h3 className="product_title">
-   																	 <a href="#">{this.props.pro.name}</a>
+   																	 <a href={"/?id="+ this.props.pro.id}>{this.props.pro.name}</a>
 																</h3>
 															</div>
 															<div className="info-meta">
 																<div className="info-price">
 																	<span className="price"> 
 																		<ins>
-    													<span className="amount">&#36;{this.props.formatPrice.format(this.props.pro.price-50000)}</span>
+    													<span className="amount">Giá: {this.props.formatPrice.format(this.props.pro.price-50000)}</span>
 																		</ins>
 																		<del>
-																			<span className="amount">&#36;{ this.props.formatPrice.format(this.props.pro.price)}</span>
+																			<span className="amount">{ this.props.formatPrice.format(this.props.pro.price)}</span>
 																		</del>
 																	</span>
 																</div>

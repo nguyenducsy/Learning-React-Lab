@@ -5,10 +5,13 @@ class ContentCart extends React.Component {
     super();
     this.state = {total:0}
     const item = JSON.parse(localStorage.getItem("listcart"));
-
-    item.map(p => {
-        this.state.total += p.price;
-    })
+    
+    if (item !== null) {
+        item.map(p => {
+            this.state.total += p.price;
+        })
+    }
+ 
     
 }
     render() {
