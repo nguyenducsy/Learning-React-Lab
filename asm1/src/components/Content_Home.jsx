@@ -24,11 +24,11 @@ function Head1_home(props) {
                         <div className="main-content">
                             <div className="columns-3">
                                 <div className="shop-toolbar">
-                                    <p className="shop-result-count">Showing 1&ndash;12 of 23 results</p>
+                                    <p className="shop-result-count">Hiển thị 1&ndash;-12 trong 23 kết quả</p>-
                                     <form className="shop-ordering" method="get">
                                         <div className="shop-ordering-select">
                                             <select name="orderby" className="orderby">
-                                            <option value="" selected='selected'>Default Sorting</option>
+                                            <option value="" selected='selected'>Sắp xếp mặt định</option>
                                             <option value="">Sort by Popularity</option>
                                             <option value="">Sort by Average Rating</option>
                                             <option value="">Sort by Newness</option>
@@ -39,7 +39,7 @@ function Head1_home(props) {
                                         </div>
                                         <div className="shop-ordering-select">
                                             <select name="per_page" className="per_page">
-                                            <option value="" selected='selected'>Show 12 products</option>
+                                            <option value="" selected='selected'>Hiển thị 9 sản phẩm</option>
                                             <option value="">Show 24 products</option>
                                             <option value="">Show 36 products</option>
                                         </select>

@@ -5,9 +5,7 @@ class ListInCart extends React.Component {
         super();
         this.state = {list: ''}
         const listcart = JSON.parse(localStorage.getItem("listcart"));
-     
-            this.state.list = listcart
- 
+        this.state.list = listcart      
     }
     render (){
 
@@ -15,7 +13,9 @@ class ListInCart extends React.Component {
 
          else{  
             return (
+           
                 this.state.list.map((p,idx) => {      
+                    
                 return  <MotItem key= {idx} item = {p} formatPrice = {this.props.format} />
                 })
             );
