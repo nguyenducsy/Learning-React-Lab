@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="./images/favicon.png" />
+    <link rel='stylesheet' href='./css/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./css/elegant-icon.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./cs/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./css/shop.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./css/page.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./css/preloader.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='./css/magnific-popup.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="./css/account.css">
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>React App</title>
+</head>
+
+<body data-spy="scroll">
+    <div id="preloader">
+        <img class="preloader__logo" src="images/logo-oizoi.png" alt="" />
+        <div class="preloader__progress">
+            <svg width="60px" height="60px" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                <path class="preloader__progress-circlebg" fill="none" stroke="#dddddd" stroke-width="4" stroke-linecap="round" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                <path id='preloader__progress-circle' fill="none" stroke="#52b5b9" stroke-width="4" stroke-linecap="round" stroke-dashoffset="192.61" stroke-dasharray="192.61 192.61" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+            </svg>
+        </div>
+    </div>
+
+    <div id="wrapper" class="wide-wrap">
+        <div class="morphsearch" id="morphsearch">
+            <form>
+                <input type="search" name="s" placeholder="Search..." class="morphsearch-input">
+                <button type="submit" class="morphsearch-submit"></button>
+            </form>
+            <span class="morphsearch-close"></span>
+        </div>
+
+        <div id="root"></div>
+
+        <!--ROUTER HERE-->
+        <!-- <div id="router">
+
+        </div> -->
+
+        <div class="footer-widget">
+            <div class="container">
+                <div class="footer-widget-wrap">
+                    <div class="row">
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget_text">
+                                <div class="textwidget">
+                                    <p>
+                                        <img src="./images/logo-oizoi.png" alt="" width="150" />
+                                        <br /><br /> Lorem Ipsum đã là văn bản giả tiêu chuẩn của ngành kể từ những năm 1500
+                                        <br /> Khi một máy in không xác định lấy.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="widget social-widget">
+                                <div class="social-widget-wrap social-widget-outlined">
+                                    <a href="#" title="Facebook" target="_blank">
+                                        <i class=" facebook-bg-hover facebook-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" alt=""></i>
+                                    </a>
+                                    <a href="#" title="Twitter" target="_blank">
+                                        <i class=" twitter-bg-hover twitter-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-512.png" alt=""></i>
+                                    </a>
+                                    <a href="#" title="Google+" target="_blank">
+                                        <i class=" google-plus-bg-hover google-plus-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/google-512.png" alt=""></i>
+                                    </a>
+                                    <a href="#" title="Pinterest" target="_blank">
+                                        <i class=" pinterest-bg-hover pinterest-outlined"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/pinterest-512.png" alt=""></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget-post-thumbnail">
+                                <h3 class="widget-title">
+                                    <span>Bài phổ biến</span>
+                                </h3>
+                                <ul class="posts-thumbnail-list">
+                                    <li>
+                                        <div class="posts-thumbnail-image">
+                                            <a href="#">
+                                                <img width="600" height="450" src="./images/aothunnam/1.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="posts-thumbnail-content">
+                                            <time datetime="2014-10-12T15:33:24+00:00">Oct 12, 2014</time>
+                                            <h4><a href="#">Áo Thun Nam Cool Off Shirt Knock</a></h4>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="posts-thumbnail-image">
+                                            <a href="#">
+                                                <img width="600" height="450" src="./images/aothunnam/5.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="posts-thumbnail-content">
+                                            <time datetime="2014-08-27T15:27:37+00:00">Aug 27, 2014</time>
+                                            <h4><a href="#">Diaz Canel Singao, Cuba Freedom Free...</a></h4>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="posts-thumbnail-image">
+                                            <a href="#">
+                                                <img width="600" height="450" src="images/aothunnam/4.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="posts-thumbnail-content">
+                                            <time datetime="2014-06-09T15:05:07+00:00">Jun 9, 2014</time>
+                                            <h4><a href="#">Tee T-Shirt Cotton World Hoes Brothers Step</a></h4>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget tweets-widget">
+                                <h3 class="widget-title">
+                                    <span>Tweets</span>
+                                </h3>
+                                <div class="recent-tweets">
+                                    <ul>
+                                        <li>
+                                            <span>RT
+                                            <a href="#" title="Follow EnvatoMarket" target="_blank">@EnvatoMarket</a>: The Best &amp; Worst Web Design Trends of 2014
+                                            <a href="#" title="" target="_blank">http://t.co/CwQkBeTsUx</a> <a href="http://t.co/LZW0aGzKtV" title="" target="_blank">http://t.co/LZW0aGzKtV</a>
+                                            </span>
+                                            <a class="twitter_time" target="_blank" href="#">223 days ago</a>
+                                        </li>
+                                        <li>
+                                            <span>RT
+                                            <a href="#" title="Follow envato" target="_blank">@envato</a>: "Good design doesn't date. Bad design does." Paul Rand.
+                                            </span>
+                                            <a class="twitter_time" target="_blank" href="#">223 days ago</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget_text">
+                                <h3 class="widget-title">
+                                    <span>LIÊN LẠC</span>
+                                </h3>
+                                <div class="textwidget">
+                                    <p>OIZOI là một cửa hàng trực tuyến . </p>
+
+                                    <p>
+                                        <i class="fa fa-home"></i> OIZOI , từ 2020 , Việt Nam<br><br />
+                                        <i class="fa fa-phone"></i> (+84) 702 434 097<br><br />
+                                        <i class="fa fa-envelope"></i>
+                                        <a href="nguyenducsy08@gmail.com"><span>nguyenducsy08@gmail.com</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-info">
+                <div class="container">
+                    <div class="footer-info-wrap">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="copyright">
+                                    Bản quyền 2015 - Được cung cấp bởi <a href="#">KavinDesign</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="footer-menu">
+                                    <ul class="footer-nav">
+                                        <li><a title="About Us" href="#">Về chúng tôi</a></li>
+                                        <li><a title="FAQ" href="#">FAQ</a></li>
+                                        <li><a title="Privacy Policy" href="#">Chính sách bảo mật</a></li>
+                                        <li><a title="Terms &amp; Conditions" href="#">Điều khoản &#038; Dịch vụ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+    <a href="#" class="go-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <div class="sitesao-preview__loading">
+        <div class="sitesao-preview__loading__animation"><i></i><i></i><i></i><i></i></div>
+    </div>
+
+
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script type='text/javascript' src='js/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='js/jquery.themepunch.tools.min.js'></script>
+    <script type='text/javascript' src='js/jquery.themepunch.revolution.min.js'></script>
+    <script type='text/javascript' src='js/preloader.min.js'></script>
+    <script type='text/javascript' src='js/easing.min.js'></script>
+    <script type='text/javascript' src='js/imagesloaded.pkgd.min.js'></script>
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/superfish-1.7.4.min.js'></script>
+    <script type='text/javascript' src='js/jquery.appear.min.js'></script>
+    <script type='text/javascript' src='js/script.js'></script>
+    <script type='text/javascript' src='js/jquery.parallax.js'></script>
+    <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
+    <script type='text/javascript' src='js/isotope.pkgd.min.js'></script>
+    <script type='text/javascript' src='js/jquery.magnific-popup.min.js'></script>
+    <script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
+    <script type='text/javascript' src='js/jquery.carouFredSel.min.js'></script>
+
+
+    <script type='text/javascript' src='js/core.min.js'></script>
+    <script type='text/javascript' src='js/widget.min.js'></script>
+    <script type='text/javascript' src='js/mouse.min.js'></script>
+    <script type='text/javascript' src='js/slider.min.js'></script>
+    <script type='text/javascript' src='js/jquery-ui-touch-punch.min.js'></script>
+    <script type='text/javascript'>
+        var price_slider_params = {
+            "currency_symbol": "$",
+            "currency_pos": "left",
+            "min_price": "",
+            "max_price": ""
+        };
+    </script>
+    <script type='text/javascript' src='js/price-slider.js'></script>
+</body>
+
+</html>
