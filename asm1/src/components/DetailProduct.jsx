@@ -113,7 +113,7 @@ class DetailProduct extends React.Component  {
 														<span className={"star-rating-width" + this.props.pro.star*20}></span>
 	                                                    </div>
 	                                                    <a href="#reviews" className="shop-review-link">
-	                                                        (<span className="count">{this.props.pro.view}</span> customer reviews)
+	                                                        (<span className="count">{this.props.pro.view}</span> đánh giá)
 	                                                    </a>
 	                                                </div>
 	                                                <p>

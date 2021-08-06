@@ -17,7 +17,7 @@ class Comment extends React.Component  {
     //     this.state.des = e.target.value;
     //     console.log(this.state);
     // }
-    addComment = (e) => {
+    addComment = (e) => { 
         let  listCm = []
         let item = {
             name: this.name.current.value,

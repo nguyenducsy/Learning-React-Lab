@@ -19,7 +19,6 @@ import FormComment from './components/Comment';
 import ListComment from './components/ListComment'
 
 const ListCart = [];
-let ProCart_new = "";
 const praram = new URLSearchParams(window.location.search)
 let home = praram.get("home")
 let id = praram.get("id");

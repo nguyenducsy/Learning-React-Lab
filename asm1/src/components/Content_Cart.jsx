@@ -17,7 +17,7 @@ class ContentCart extends React.Component {
     render() {
         return (
 
-            <div>
+        <div>
         <div className="heading-container ">
             <div className="container heading-standar">
                 <div className="heading-wrap">
