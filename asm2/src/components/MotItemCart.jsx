@@ -4,15 +4,24 @@ class Cart extends React.Component {
     constructor(props){
         super();
         console.log(props);
-        
-        
+         
     }
+
+    	//format 
+	formatter = new Intl.NumberFormat('vi-VN', {
+		style: 'currency',
+		currency: 'VND',
+		minimumFractionDigits: 0
+	  })
     render() {
         const kq = 
         <>
              <tr className="cart_item">
                                             <td className="product-remove">
-                                                <a href="#" className="remove">&times;</a>
+                                                <button type="button" onClick={() => this.props.GetProByID(this.props.item.id)}>
+                    
+                                                <a  className="remove">&times;</a>
+                                                </button>
                                             </td>
                                             <td className="product-thumbnail">
                                                 <a href="#">
@@ -23,7 +32,7 @@ class Cart extends React.Component {
                                                 <a href="#">{this.props.item.name} </a>
                                             </td>
                                             <td className="product-price text-center">
-                                                <span className="amount">{this.props.formatPrice.format(this.props.item.price)}</span>
+                                                <span className="amount">{this.formatter.format(this.props.item.price)}</span>
                                             </td>
                                             <td className="product-quantity text-center">
                                                 <div className="quantity">
@@ -31,7 +40,7 @@ class Cart extends React.Component {
                                                 </div>
                                             </td>
                                             <td className="product-subtotal text-center">
-                                            <span className="amount">{this.props.formatPrice.format(this.props.item.price)}</span>
+                                            <span className="amount">{this.formatter.format(this.props.item.price)}</span>
                                             </td>
                                         </tr>            
         </>

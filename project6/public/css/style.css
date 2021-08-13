@@ -1,0 +1,28 @@
+.right {
+    float: right;
+    margin-top: 60px;
+    margin-right: 10px;
+    color: white;
+}
+
+.tiente {
+    margin-left: 5px;
+}
+
+.imgurl {
+    border-radius: 50%;
+    width: 16%;
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.info {
+    width: 80%;
+    float: right;
+}
+
+.tiente:hover {
+    text-shadow: rgb(5, 5, 5) 0px 0px 10px;
+    color: white;
+}

@@ -368,6 +368,10 @@ table {
     margin-bottom: 1.5862068965517242em;
 }
 
+.main-content .columns-3 {
+    padding-left: 70px;
+}
+
 .main-content table>thead>tr>th,
 .main-content table>tbody>tr>th,
 .main-content table>tfoot>tr>th,
@@ -431,13 +435,34 @@ body {
     font-weight: 400;
 }
 
+.boxtiente {
+    margin-left: 10px;
+}
+
+.tiente {
+    float: left;
+    /* border: 1px solid #52b5b9; */
+    /* margin-top: 100px; */
+    padding: 27px 5px;
+}
+
+.tiente:hover {
+    text-shadow: #418f92 0px 0px 10px;
+    color: #52b5b9;
+}
+
 input,
 button,
 select,
 textarea {
     font-family: inherit;
     font-size: inherit;
+    border: none;
     line-height: inherit;
+}
+
+.mauchu {
+    color: #52b5b9;
 }
 
 a {
@@ -3980,6 +4005,7 @@ object {
 }
 
 .main-sidebar>div:first-child .widget-title {
+    font-family: arial;
     margin-top: 0;
 }
 
@@ -4065,8 +4091,8 @@ object {
 .col-lg-12 {
     position: relative;
     min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px;
+    padding-right: 15px; */
 }
 
 @media (max-width: 767px) {
@@ -4568,7 +4594,8 @@ object {
         width: 83.33333333333334%;
     }
     .col-md-9 {
-        width: 75%;
+        width: 80%;
+        /* padding-left: 70px; */
     }
     .col-md-8 {
         width: 66.66666666666666%;
@@ -4577,7 +4604,8 @@ object {
         width: 58.333333333333336%;
     }
     .col-md-6 {
-        width: 50%;
+        width: 48%;
+        padding: 10px 20px;
     }
     .col-md-5 {
         width: 41.66666666666667%;
@@ -4586,7 +4614,7 @@ object {
         width: 33.33333333333333%;
     }
     .col-md-3 {
-        width: 25%;
+        width: 20%;
     }
     .col-md-2 {
         width: 16.666666666666664%;
@@ -22391,6 +22419,7 @@ p.comment-form-url {
 .main-sidebar .widgettitle,
 .main-sidebar .widget-title {
     padding-bottom: 0.7em;
+    font-family: arial;
     position: relative;
 }
 

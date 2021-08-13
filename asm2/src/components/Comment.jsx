@@ -1,4 +1,5 @@
 import React from 'react';
+import ListComment from './ListComment'
 class Comment extends React.Component  {
 	constructor(props){
         super();
@@ -31,8 +32,9 @@ class Comment extends React.Component  {
         else {
             comments.push(item)
             localStorage.setItem('comment' , JSON.stringify(comments));
+            alert("Đã gửi bình luận")
         }
-        // window.location.reload();
+        window.location.reload();
         e.preventDefault();
 	}
 

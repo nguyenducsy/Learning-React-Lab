@@ -1,0 +1,50 @@
+.listSach {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 33% 33% auto;
+}
+
+.MotSach {
+    border: 1px solid rgb(205 205 205);
+    text-align: center;
+}
+
+.MotSach h3 {
+    height: 50px;
+    margin: 5px 0 0 0;
+    color: deeppink;
+    font-size: 20px;
+}
+
+.MotSach p {
+    margin: 5px 0;
+    font-size: 1.3em;
+    color: darkorange;
+    font-weight: bold;
+}
+
+.MotSach a {
+    color: deeppink;
+    font-size: 1em;
+}
+
+.MotSach img {
+    max-width: 100%;
+    height: 180px;
+    /* border: 1px black solid; */
+}
+
+.btn {
+    height: 35px;
+    width: 110px;
+    background: darkcyan;
+    border: none;
+    margin-right: 10px;
+    color: white
+}
+
+.btn:hover {
+    background: darkorange;
+    color: white;
+    cursor: pointer;
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BrowserRouter, Route, Link  } from 'react-router-dom';
+
 class FormLog extends React.Component {
         constructor(props){
             super();
@@ -34,7 +36,7 @@ class FormLog extends React.Component {
                 </section>
                 <footer>
                     <button type="button" className="forgotBtn">Forgot password?</button>
-                    <button type="button" className="registerBtn">   <a className="nav-link" href="?home=register">Need an account?</a></button>
+                    <Link to="register">  <button type="button" className="registerBtn">  <a className="nav-link">Need an account?</a></button></Link> 
                 </footer>
             </form> 
         </div>

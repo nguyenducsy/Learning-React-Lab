@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { BrowserRouter, Route, Link  } from 'react-router-dom';
+import ListInCart from './ListInCart'
 class ContentCart extends React.Component {
     constructor(props){
     super();
@@ -14,6 +15,13 @@ class ContentCart extends React.Component {
  
     
 }
+	//format 
+	formatter = new Intl.NumberFormat('vi-VN', {
+		style: 'currency',
+		currency: 'VND',
+		minimumFractionDigits: 0
+      })
+      
     render() {
         return (
 
@@ -63,16 +71,20 @@ class ContentCart extends React.Component {
                                         </tr>
                                     </thead>
                                     <tbody id="listInCart">
+                                    <BrowserRouter>
+                                         <Route path='/cart' exact component={ListInCart} />
+                                    {/* <ListPro formatPrice = {props.format} /> */}
+                                    </BrowserRouter>
                                        <tr>
                                             <td colspan="6" className="actions">
                                                 <div className="coupon">
-                                                    <label>Coupon:</label>
-                                                    <input type="text" name="coupon_code" className="input-text" placeholder="Coupon code" />
-                                                    <input type="submit" className="button" name="apply_coupon" value="Apply Coupon" />
+                                                    <label>Giảm giá:</label>
+                                                    <input type="text" name="coupon_code" className="input-text" placeholder="Mã giảm giá" />
+                                                    <input type="submit" className="button" name="apply_coupon" value="Áp dụng" />
                                                 </div>
-                                                <input type="submit" className="button" name="update_cart" value="Update Cart" />
+                                                <input type="submit" className="button" name="update_cart" value="Cập nhập giỏ hàng" />
                                             </td>
-                                        </tr>
+                                        </tr>                         
                                     </tbody>
                                 </table>
                                 <div className="cart-collaterals">
@@ -83,7 +95,7 @@ class ContentCart extends React.Component {
                                             <tr className="cart-subtotal">
                                                 <th>Tổng tiền hàng</th>
                                                 <td>             
-                                                    <span className="amount"> {this.props.formatt.format(this.state.total)}</span>
+                                                    <span className="amount"> {this.formatter.format(this.state.total)}</span>
                                                 </td>
                                             </tr>
                                             <tr className="shipping">
@@ -96,7 +108,7 @@ class ContentCart extends React.Component {
                                             <tr className="order-total">
                                                 <th>Tổng thanh toán</th>
                                                 <td>
-                                                    <strong><span className="amount"> {this.props.formatt.format(this.state.total)}</span></strong>
+                                                    <strong><span className="amount"> {this.formatter.format(this.state.total)}</span></strong>
                                                 </td>
                                             </tr>
                                         </table>

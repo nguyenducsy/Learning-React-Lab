@@ -1,38 +1,61 @@
 import React from 'react';
+import { connect } from 'react-redux'; 
+import ShowCarts from './ShowCart'
+import no from './no'
+import FormComment from './Comment';
+import ListComment from './ListComment'
+import ListProHot from './ListProductHOT'
+import ListProChay  from './ListProductBANCHAY'
+// import Category from './Catalog';
 
 class DetailProduct extends React.Component  {
 	constructor(props){
-        super();
+		super();
         this.state = {
-            showYK: true,quatityChecked:0, idProChecked:[]
+            showYK: true,quatityChecked:0, idProChecked:[] , param: "" , id: '' ,item:[]
 		}    
-		console.log(props);
+		this.state.param =  new URLSearchParams(window.location.search);
+		this.state.id = this.state.param.get("id");
+		
 		this.name = React.createRef();
-		this.content = React.createRef();
+		this.content = React.createRef();  
 		
 	}
-	choosePro = (idPro) => {  
-        this.state.idProChecked.push(idPro);
-		this.state.quatityChecked++;
-		console.log(idPro);
-		// localStorage.setItem('no' , JSON.stringify(this.state.quatityChecked));
-        this.props.ShowCarts(idPro);
-    }
-   
+
+		//format 
+		formatter = new Intl.NumberFormat('vi-VN', {
+			style: 'currency',
+			currency: 'VND',
+			minimumFractionDigits: 0
+		  })
+
+		  choosePro=(idPro) => { 
+			alert("Đã thêm vào giỏ")
+			this.state.idProChecked.push(idPro);
+			this.state.quatityChecked++;     
+			ShowCarts(idPro,this.props.listPro)
+			window.location.reload()
+			no()
+		}
+
     render() {
+		
+		let ID = parseInt(this.state.id)
 		return (
-        <>
-		 {/* {this.props.Pro.name || "Undefinded"} */}
-		 <div className="heading-container ">
+            this.props.listPro.map((p,idx)  => {
+				if (p.id === ID) {
+					
+					return  <>
+			<div className="heading-container ">
 				<div className="container heading-standar">
 					<div className="heading-wrap">
 						<div className="page-breadcrumb clearfix">
 							<div className="pull-left">
 								<ul className="breadcrumb">
 									<li>
-										<a href="#" className="home"><span>Trang chủ</span></a>
+										<a href="#" className="home"><span>Home</span></a>
 									</li>
-									<li><span>Chi tiết</span></li>
+									<li><span>Single Product Sidebar</span></li>
 								</ul>
 							</div>
 							<div className="heading-info pull-right">
@@ -45,7 +68,7 @@ class DetailProduct extends React.Component  {
 							</div>
 						</div>
 						<div className="page-title">
-							<h1>Chi tiết sản phẩm</h1>
+							<h1>Single Product Sidebar</h1>
 						</div>
 					</div>
 				</div>
@@ -67,13 +90,13 @@ class DetailProduct extends React.Component  {
 	                                                    <div className="caroufredsel-wrap">
 	                                                        <ul className="caroufredsel-items">
 	                                                            <li className="caroufredsel-item">
-	                                                                <a href={this.props.pro.urlPic}  data-rel="magnific-popup" title="p11">
-	                                                                    <img width="700" height="700" src={this.props.pro.urlPic} alt="" />
+	                                                                <a href={p.urlPic}  data-rel="magnific-popup" title="p11">
+	                                                                    <img width="700" height="700" src={p.urlPic} alt="" />
 	                                                                </a>
 	                                                            </li>
 	                                                            <li className="caroufredsel-item">
-	                                                                <a href={this.props.pro.urlPic2}  data-rel="magnific-popup" title="p12">
-	                                                                    <img width="700" height="700" src={this.props.pro.urlPic2} alt="p12"/>
+	                                                                <a href={p.urlPic2}  data-rel="magnific-popup" title="p12">
+	                                                                    <img width="700" height="700" src={p.urlPic2} alt="p12"/>
 	                                                                </a>
 	                                                            </li>
 	                                                        </ul>
@@ -87,14 +110,14 @@ class DetailProduct extends React.Component  {
 	                                                            <li className="caroufredsel-item">
 	                                                                <div className="thumb">
 	                                                                    <a href="#" data-rel="0" title="p11">
-	                                                                        <img width="200" height="200" src={this.props.pro.urlPic} alt="p11" title="p11"/>
+	                                                                        <img width="200" height="200" src={p.urlPic} alt="p11" title="p11"/>
 	                                                                    </a>
 	                                                                </div>
 	                                                            </li>
 	                                                            <li className="caroufredsel-item">
 	                                                                <div className="thumb">
 	                                                                    <a href="#" data-rel="1" title="p12">
-	                                                                        <img width="200" height="200" src={this.props.pro.urlPic2} alt="p12"/>
+	                                                                        <img width="200" height="200" src={p.urlPic2} alt="p12"/>
 	                                                                    </a>
 	                                                                </div>
 	                                                            </li>
@@ -107,26 +130,26 @@ class DetailProduct extends React.Component  {
 	                                        </div>
 	                                        <div className="col-md-6 col-sm-6">
 	                                            <div className="summary entry-summary">
-	                                                <h1 className="product_title entry-title">{this.props.pro.name}</h1>
+	                                                <h1 className="product_title entry-title">{p.name}</h1>
 	                                                <div className="shop-product-rating">
 	                                                    <div className="star-rating">
-														<span className={"star-rating-width" + this.props.pro.star*20}></span>
+														<span className={"star-rating-width" + p.star*20}></span>
 	                                                    </div>
 	                                                    <a href="#reviews" className="shop-review-link">
-	                                                        (<span className="count">{this.props.pro.view}</span> customer reviews)
+	                                                        (<span className="count">{p.view}</span> đánh giá)
 	                                                    </a>
 	                                                </div>
 	                                                <p>
-														{this.props.pro.des}
+														{p.des}
 	                                                </p>
-	                                            <p className="price">Giá: <span className="amount"> {this.props.format.format(this.props.pro.price)}</span></p>
+	                                            <p className="price">Giá: <span className="amount"> {this.formatter.format(p.price)}</span></p>
 	                                                {/* <form className="cart">
 	                                                    */}
 														<div className="cart">
 														<div className="quantity">
 	                                                        <input type="number" step="1" min="1" name="quantity" value="1" className="input-text qty text" size="4"/>
 	                                                    </div> 
-	                                                    <button type="submit" className="button" onClick={() => this.choosePro(this.props.pro.id)}>Add to cart</button>
+	                                                    <button type="submit" className="button" onClick={() => this.choosePro(p.id)}>Thêm vào giỏ</button>
 														</div>
 											        {/* </form> */}
 	                                                <div className="add-to-wishlist-actions">
@@ -135,7 +158,9 @@ class DetailProduct extends React.Component  {
 	                                                <div className="clear"></div>
 	                                                <div className="product_meta">
 	                                                    <span className="posted_in">
-	                                                        Categories: <a href="#">Shirts</a>, <a href="#">Tops &amp; Tunics</a>.
+	                                                        Danh mục: <a href="#">Áo thun</a>, <a href="#">Tops 
+															{/* &amp;  */}
+															</a>.
 	                                                    </span>
 	                                                </div>
 	                                                <div className="share-links">
@@ -171,13 +196,13 @@ class DetailProduct extends React.Component  {
 	                                                <a data-toggle="tab" role="tab" href="#tab-description">Mô tả</a>
 	                                            </li>
 	                                            <li>
-	                                                <a data-toggle="tab" role="tab" href="#tab-reviews">Bình luận (2)</a>
+	                                                <a data-toggle="tab" role="tab" href="#tab-reviews">Đánh giá (2)</a>
 	                                            </li>
 	                                        </ul>
 	                                        <div className="tab-content">
 	                                            <div className="tab-pane active" id="tab-description">
 	                                                <p>
-														{this.props.pro.des}
+														{p.des}
                                                     </p>
 	                                            </div>
 	                                            <div className="tab-pane" id="tab-reviews">
@@ -185,12 +210,12 @@ class DetailProduct extends React.Component  {
 	                                                    <div id="comments">
 	                                                        <h2>2 reviews for Brown Printed</h2>
 	                                                        <ol className="commentlist" id ="listComment">
-	                                                     
+															<ListComment/>
 	                                                    
 	                                                        </ol>
 	                                                        <div id="respond-wrap">
 	                                                            <div id="respond" className="comment-respond"> {/* Form Comment */} 
-	                                                         
+	                                                         <FormComment/>
 	                                                            </div> 
 	                                                        </div>
 	                                                    </div>
@@ -212,36 +237,44 @@ class DetailProduct extends React.Component  {
 							</div>
 						</div>
 						<aside className="col-md-3 sidebar-wrap">
-							<div className="main-sidebar">
-								<div className="widget shop widget_product_categories">
-									<h4 className="widget-title"><span>Categories</span></h4>
-									<ul className="product-categories">
-										<li><a href="#">Capris &amp; Tights</a> <span className="count">(6)</span></li>
-										<li><a href="#">Dresses</a> <span className="count">(4)</span></li>
-										<li><a href="#">Innerwear</a> <span className="count">(5)</span></li>
-										<li><a href="#">Shirts</a> <span className="count">(6)</span></li>
-										<li><a href="#">Tees &amp; Polos</a> <span className="count">(6)</span></li>
-										<li><a href="#">Tops &amp; Tunics</a> <span className="count">(12)</span></li>
-										<li><a href="#">Winter Wear</a> <span className="count">(2)</span></li>
-									</ul>
-								</div>
-								<div className="widget shop widget_top_rated_products">
-								<h4 className="widget-title"><span>Nổi bật</span></h4>
+                            <div className="main-sidebar">
+                                {/* <div className="widget shop widget_product_categories">
+                                    <h4 className="widget-title"><span>Danh mục</span></h4>
+                                    <ul className="product-categories" id ="catalogs">
+                                        <Category /> */}
+                                    {/* <Route path='/' exact component={ListPro} /> */}
+                                    {/* <Route path='/' component={ListProHot}/> */}
+                            
+                   
+                                    {/* </ul>
+                                </div> */}
+                                <div className="widget shop widget_top_rated_products">
+                                    <h4 className="widget-title"><span>Nổi bật</span></h4>
                                     <ul className="product_list_widget" id="listProHot">
-									</ul>
-								</div>
-								<div className="widget shop widget_recent_reviews">
-								<h4 className="widget-title"><span>Bán chạy</span></h4>
+                                    <ListProHot/>
+                                    </ul>
+                                </div>
+                                <div className="widget shop widget_recent_reviews">
+                                    <h4 className="widget-title"><span>Bán chạy</span></h4>
                                     <ul className="product_list_widget" id="listProChay">
-									</ul>
-								</div>
-							</div>
-						</aside>
+                                   <ListProChay/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
 					</div>
 				</div>
-			</div>	     </>
-		)
-	};
+			</div>	   
+		</>
+	
+				}
+            })
+        );	
+	}
 }
 
-export default DetailProduct;
+
+const mapState = (state) => {  
+    return {  listPro : state.product, }; 
+  };
+export default connect(mapState, null)(DetailProduct);
