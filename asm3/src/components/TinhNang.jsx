@@ -9,7 +9,7 @@ class TinhNang extends React.Component  {
     }
     xem(){
         const Item_local = JSON.parse(localStorage.getItem('info'));
-        if (Item_local.tokenId !== "") {
+        if (!Item_local) {
             window.location.reload();
         }else {
             prompt("Đây là chức năng cho người quản trị . Nếu muốn xem cần gửi lý do.")

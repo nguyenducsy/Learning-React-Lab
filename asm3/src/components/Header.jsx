@@ -8,7 +8,12 @@ import Weather from './WeatherAPI'
 const Header = (props) => {
 
     const info = JSON.parse(localStorage.getItem('info'));
-
+    let avt,hoten = "";
+    if (info) {
+        avt = info.img;
+        hoten = info.hoten
+    }
+    else avt ="" ; hoten = "";
 
     return (
         <>
@@ -32,11 +37,11 @@ const Header = (props) => {
                                 
                                     <div className="topbar-nav">
                                         <ul className="nav top-nav">
-                                            <img src={info.img}
+                                            <img src={avt}
                                                 alt=""/>
                                             <li>
                                                 <Link to="admin">
-                                                <a title="Tài khoản của tôi">Hello , {info.hoten}</a>
+                                                <a title="Tài khoản của tôi">Hello , {hoten}</a>
                                                 </Link>
                                                 </li>
                                             <li className="dropdown">

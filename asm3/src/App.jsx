@@ -47,7 +47,7 @@ function App(props) {
 
       const info = JSON.parse(localStorage.getItem('info'));
       let dangNhapChua = false;
-      if (info.tokenId === "") {
+      if (!info ) {
         dangNhapChua = false;
       }
       else dangNhapChua = true;
